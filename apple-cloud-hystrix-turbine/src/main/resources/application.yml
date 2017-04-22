@@ -1,0 +1,21 @@
+server:
+  port: 8031
+
+spring:
+  application:
+    name: apple-cloud-hystrix-turbine
+
+turbine:
+  aggregator:
+    clusterConfig: CONSUMER-USER  #多个逗号隔开
+  appConfig: consumer-user
+  #http://localhost:8031/turbine.stream?cluster=CONSUMER-USER
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+
