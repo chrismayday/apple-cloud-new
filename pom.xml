@@ -14,6 +14,7 @@
         <module>apple-cloud-consumer-user</module>
         <module>apple-cloud-hystrix-dashboard</module>
         <module>apple-cloud-hystrix-turbine</module>
+        <module>apple-cloud-gateway-zuul</module>
     </modules>
     <packaging>pom</packaging>
 
