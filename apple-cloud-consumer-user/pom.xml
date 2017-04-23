@@ -32,6 +32,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
 
         <!-- spring boot devtools 热部署 依赖包. -->
         <dependency>
@@ -52,6 +56,23 @@
                 <configuration>
                     <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
                     <fork>true</fork>
+                </configuration>
+            </plugin>
+
+            <!-- 打包跳过测试  mvn test -Dmaven.test.failure.ignore=true mvn install -Dmaven.test.skip=true -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.19</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
